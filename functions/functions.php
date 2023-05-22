@@ -4,12 +4,14 @@
 function getRandomString($n){
     
     // array di numeri, lettere minuscole, maiuscole e caratteri speciali
-    $characters = [
-        '0123456789', // numbers
-        'abcdefghijklmnopqrstuvwxyz', //lettersm
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZ', //lettersM
-        '\|!"£$%&/()=?@[]{}+-_°#ç§*' //symbols
-    ];
+    // $characters = [
+    //     '0123456789', // numbers
+    //     'abcdefghijklmnopqrstuvwxyz', //lettersm
+    //     'ABCDEFGHIJKLMNOPQRSTUVWXYZ', //lettersM
+    //     '\|!"£$%&/()=?@[]{}+-_°#ç§*' //symbols
+    // ];
+
+    include './variables/variables.php';
     
     $randomString = '';
 
