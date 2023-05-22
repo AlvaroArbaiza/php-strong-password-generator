@@ -1,6 +1,6 @@
 <?php
 
-include './functions/functions.php';
+include __DIR__ . './functions/functions.php';
 
 // se il form invia un input mi fa partire la funzione 
 if ( isset($_GET['passwordLenght']) ) {

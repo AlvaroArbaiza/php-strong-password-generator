@@ -2,19 +2,9 @@
 
 // funzione per la generazione di caratteri casuali compresi numeri, lettere minuscole, maiuscole e caratteri speciali
 function getRandomString($n){
-    
-    // array di numeri, lettere minuscole, maiuscole e caratteri speciali
-    // $characters = [
-    //     '0123456789', // numbers
-    //     'abcdefghijklmnopqrstuvwxyz', //lettersm
-    //     'ABCDEFGHIJKLMNOPQRSTUVWXYZ', //lettersM
-    //     '\|!"£$%&/()=?@[]{}+-_°#ç§*' //symbols
-    // ];
 
-    include './variables/variables.php';
+    include __DIR__ . '/../variables/variables.php';
     
-    $randomString = '';
-
     var_dump( $characters );
     
     // creazione ciclo for per generare la quantita di caratteri da creare

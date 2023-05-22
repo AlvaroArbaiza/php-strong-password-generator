@@ -7,3 +7,5 @@ $characters = [
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ', //lettersM
     '\|!"£$%&/()=?@[]{}+-_°#ç§*' //symbols
 ];
+
+$randomString = '';
