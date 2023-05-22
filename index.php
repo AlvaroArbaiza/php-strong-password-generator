@@ -1,32 +1,53 @@
 <?php
 
-
 // funzione per la generazione di caratteri casuali compresi numeri, lettere minuscole, maiuscole e caratteri speciali
-function getRandomString($n)
-{
-
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\|!"£$%&/()=?@[]{}+-_°#ç§*';
+function getRandomString($n){
+    
+    $characters = [
+        '0123456789', // numbers
+        'abcdefghijklmnopqrstuvwxyz', //lettersm
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ', //lettersM
+        '\|!"£$%&/()=?@[]{}+-_°#ç§*' //symbols
+    ];
+    
     $randomString = '';
+    var_dump( $characters );
 
-    // ciclo for per il numero di caratteri scelti nel input del form
+    var_dump( rand( 0, strlen($characters[rand( 0, sizeof($characters) )])) );
+    
+    // creazione ciclo for per generare la quantita di caratteri da creare
     for ($i = 0; $i < $n; $i++) {
 
-        // variabile calcolata con un random number che verrà preso tra zero e la lunghezza di $characters
-        $index = rand(0, strlen($characters) - 1);
+        $indice = $i;
 
-        // variabile alla quale pusheremo di volta in volta i nostri caratteri casuali
-        $randomString .= $characters[$index];
+        // quando l'indice supera la lunghezza dell'array $characters genero un numero random indice casuale che mi darà dei numeri casuali di volta in volta in base a dove l'indice verrà posizionato ad ogni giro del ciclo
+        if ( $indice > 3 ) {
+
+            $indice = rand( 0, sizeof($characters) );
+
+            $indexRand = rand( 0, strlen($characters[$indice]));
+            
+            $randomString .= $characters[$indice][$indexRand];
+
+        } else {
+
+            $indexRand = rand( 0, strlen($characters[$indice]) - 1 );
+
+            $randomString .= $characters[$indice][$indexRand];
+        }
     }
 
     return $randomString;
+
 }
 
-if ( isset($_GET['password']) ) {
+// se il form invia un input mi fa partire la funzione 
+if ( isset($_GET['passwordLenght']) ) {
 
-    echo getRandomString($_GET['password'] );
+    echo getRandomString($_GET['passwordLenght'] );
 }
 
-var_dump($_GET['password'] );
+var_dump($_GET['passwordLenght'] );
 
 ?>
 
@@ -54,13 +75,9 @@ var_dump($_GET['password'] );
                     <h2>Crea la tua password</h2>
                     <div class="mb-3">
                         <label for="generaPass" class="form-label">Lunghezza:</label>
-                        <input type="number" class="form-control" id="generaPass" name="password">
+                        <input type="number" class="form-control" id="generaPass" name="passwordLenght" min="4" max="10">
                     </div>
                     
-                    <!-- <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div> -->
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
