@@ -1,5 +1,31 @@
 <?php
 
+
+// funzione per la generazione di caratteri casuali compresi numeri, lettere minuscole, maiuscole e caratteri speciali
+function getRandomString($n)
+{
+
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\|!"£$%&/()=?@[]{}+-_°#ç§*';
+    $randomString = '';
+
+    // ciclo for per il numero di caratteri scelti nel input del form
+    for ($i = 0; $i < $n; $i++) {
+
+        // variabile calcolata con un random number che verrà preso tra zero e la lunghezza di $characters
+        $index = rand(0, strlen($characters) - 1);
+
+        // variabile alla quale pusheremo di volta in volta i nostri caratteri casuali
+        $randomString .= $characters[$index];
+    }
+
+    return $randomString;
+}
+
+if ( isset($_GET['password']) ) {
+
+    echo getRandomString($_GET['password'] );
+}
+
 var_dump($_GET['password'] );
 
 ?>
@@ -24,9 +50,11 @@ var_dump($_GET['password'] );
 
                 <!-- form -->
                 <form action="index.php"  method="GET">
+
+                    <h2>Crea la tua password</h2>
                     <div class="mb-3">
-                        <label for="generaPass" class="form-label">Crea la tua password</label>
-                        <input type="text" class="form-control" id="generaPass" name="password">
+                        <label for="generaPass" class="form-label">Lunghezza:</label>
+                        <input type="number" class="form-control" id="generaPass" name="password">
                     </div>
                     
                     <!-- <div class="mb-3 form-check">
