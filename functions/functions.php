@@ -5,8 +5,6 @@ function getRandomString($n){
 
     include __DIR__ . '/../variables/variables.php';
     
-    var_dump( $characters );
-    
     // creazione ciclo for per generare la quantita di caratteri da creare
     for ($i = 0; $i < $n; $i++) {
 

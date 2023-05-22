@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . './functions/functions.php';
+include_once __DIR__ . './functions/functions.php';
 
 // se il form invia un input mi fa partire la funzione 
 if ( isset($_GET['passwordLenght']) ) {
@@ -28,7 +28,7 @@ if ( isset($_GET['passwordLenght']) ) {
             <div class="col-5">
 
                 <!-- form -->
-                <form action="index.php"  method="GET">
+                <form action="/php-strong-password-generator/pages/passwordUtente.php"  method="GET">
 
                     <h2>Crea la tua password</h2>
                     <div class="mb-3">
